@@ -1,4 +1,4 @@
-# Projeto: PromoTarget (Português)
+# Projeto: PromoTarget 
 
 ## Descrição
 Este projeto demonstra como é possível usar **Machine Learning** para direcionar promoções a pessoas com base em dados simples (idade, renda e gênero) e, em seguida, aplicar técnicas estatísticas para **anonimização**, garantindo que não seja possível identificar indivíduos específicos.
