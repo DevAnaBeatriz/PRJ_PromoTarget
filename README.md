@@ -6,6 +6,7 @@ Este projeto demonstra como é possível usar **Machine Learning** para direcion
 O objetivo é mostrar **duas etapas complementares**:
 1. **Predição e caracterização de perfis de consumo** — o modelo consegue identificar tendências (ex: pessoas com renda alta têm maior probabilidade de comprar uma promoção).
 2. **Anonimização de dados pessoais** — após o uso para fins analíticos, os dados passam por um processo de anonimização (agrupamento de idades e ruído estatístico na renda), o que impede a identificação de uma pessoa individualmente.
+3. **Teste de anonimato** — etapa que valida se o processo de anonimização realmente impede a reidentificação, comparando padrões antes e depois da anonimização.
 
 ---
 
@@ -13,6 +14,7 @@ O objetivo é mostrar **duas etapas complementares**:
 - **Direcionar uma compra:** prever, com base nos dados, quem tem maior probabilidade de aceitar uma promoção.
 - **Caracterizar uma pessoa:** o modelo aprende padrões que distinguem grupos (ex: idade e renda influenciam a decisão).
 - **Anonimização estatística:** técnica para evitar reidentificação (com ruído e agrupamento).
+- **Teste de anonimato:** mede o nível de anonimização e verifica se há correlação entre dados originais e anonimizados.
 
 ---
 
@@ -53,7 +55,8 @@ O terminal exibirá:
 - A acurácia do modelo;
 - A previsão para um novo cliente;
 - A demonstração de que o modelo caracteriza perfis;
-- Os dados anonimizados (sem identificação individual).
+- Os dados anonimizados (sem identificação individual);
+- Resultado do teste de anonimato, mostrando se a correlação entre dados originais e anonimizados é suficientemente baixa.
 
 ---
 
