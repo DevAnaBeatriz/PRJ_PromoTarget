@@ -1,0 +1,44 @@
+version: '3.8'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+
+  sonarqube:
+    image: sonarqube:community
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+    environment:
+      - SONARQUBE_JDBC_USERNAME=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
+      - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonar
+    depends_on:
+      - db
+    volumes:
+      - sonarqube_data:/opt/sonarqube/data
+      - sonarqube_logs:/opt/sonarqube/logs
+
+  db:
+    image: postgres:13
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: sonar
+      POSTGRES_PASSWORD: sonar
+      POSTGRES_DB: sonar
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  jenkins_home:
+  sonarqube_data:
+  sonarqube_logs:
+  postgres_data:
